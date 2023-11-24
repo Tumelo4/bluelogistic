@@ -13,7 +13,7 @@ interface HeaderProp {
 const Header = ({children}: HeaderProp) => {
     return (
         <div className={twMerge(clsx(Flexbox.flexBetween, 'w-full h-8'))}>
-            <Logo src ={logo} alt = "logo" />
+            <Logo src ={logo} alt = "blue logistics" />
             {children}
             <NavBar />
         </div>
