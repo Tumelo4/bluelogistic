@@ -4,12 +4,12 @@ import {twMerge} from "tailwind-merge";
 
 const NavBar = () => {
     return (
-        <div className={twMerge(Flexbox.flexCenterGap)}>
-            <h1>Home</h1>
-            <h1>About</h1>
-            <h1>Service</h1>
-            <h1>Team</h1>
-            <h1>Contact</h1>
+        <div className={twMerge(Flexbox.flexCenter)}>
+            <h1 className=' hover:cursor-pointer p-3 hover:outline'>Home</h1>
+            <h1 className=' hover:cursor-pointer p-3 hover:outline'>About</h1>
+            <h1 className=' hover:cursor-pointer p-3 hover:outline'>Service</h1>
+            <h1 className=' hover:cursor-pointer p-3 hover:outline'>Team</h1>
+            <h1 className=' hover:cursor-pointer p-3 hover:outline'>Contact</h1>
         </div>
     )
 }
