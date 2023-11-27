@@ -5,10 +5,11 @@ import { clsx } from "clsx"
 import RightHeaderItems from "./RightHeaderItems"
 import childrenProp from "@/interface/childrenProp"
 import LeftHeaderItems from "./LeftHeaderItems"
+import Color from "@/constants/theme/Color";
 
 const Header = ({children}: childrenProp) => {
     return (
-        <div className={twMerge(clsx(Flexbox.flexBetween, 'w-full h-8'))}>
+        <div className={twMerge(clsx(Flexbox.flexBetween , 'bg-lightGray','w-full h-14 px-5 py-4 fixed'))}>
             <LeftHeaderItems />
             {children}
             <RightHeaderItems />
