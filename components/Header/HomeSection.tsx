@@ -14,6 +14,7 @@ const HomeSection = () => {
     const MeshFunction = () => {
         const earthRef = useRef<any>();
         const cloudRef = useRef<any>();
+
         useFrame(({clock}) => {
             const elapsedTime = clock.getElapsedTime();
             earthRef.current.rotation.y = elapsedTime/6;
@@ -56,9 +57,10 @@ const HomeSection = () => {
             </Suspense>
         );
     }
+    const cameraPosition: [number, number, number] = [0, 0, 3];
 
     return (
-        <Canvas>
+        <Canvas  camera={{ position: cameraPosition }}>
             <MeshFunction />
         </Canvas>
     );
