@@ -1,6 +1,6 @@
 "use client"
-import { Canvas, useLoader } from '@react-three/fiber'
-import React, { Suspense } from 'react'
+import { Canvas, useFrame, useLoader } from '@react-three/fiber'
+import React, { Suspense, useRef } from 'react'
 import EarthDayMap from "@/assets/textures/8k_earth_daymap.jpg"
 import EarthClouds from "@/assets/textures/8k_earth_clouds.jpg"
 import EarthSpecularMap from "@/assets/textures/8k_earth_specular_map.jpg"
@@ -9,14 +9,17 @@ import { OrbitControls, Stars } from '@react-three/drei'
 import { TextureLoader} from "three"
 import * as THREE from "three"
 
-
-
 const HomeSection = () => {
-
     const [colorMap, normalMap, specularMap, cloudsMap]= useLoader(TextureLoader, [EarthDayMap.src, EarthNormalMap.src, EarthSpecularMap.src, EarthClouds.src]);
-
-    return (
-        <Canvas>
+    const MeshFunction = () => {
+        const earthRef = useRef<any>();
+        const cloudRef = useRef<any>();
+        useFrame(({clock}) => {
+            const elapsedTime = clock.getElapsedTime();
+            earthRef.current.rotation.y = elapsedTime/6;
+            cloudRef.current.rotation.y = elapsedTime/6;
+        })
+        return (
             <Suspense fallback={null}>
                 <ambientLight intensity={1} />
                 <Stars 
@@ -27,7 +30,7 @@ const HomeSection = () => {
                     saturation={0}
                     fade={true} 
                 />
-                <mesh>
+                <mesh ref={cloudRef}>
                     <sphereGeometry args={[1.005, 32, 32]} />
                     <meshPhongMaterial 
                         map = {cloudsMap} 
@@ -37,7 +40,7 @@ const HomeSection = () => {
                         side={THREE.DoubleSide} 
                     />
                 </mesh>
-                <mesh>
+                <mesh ref={earthRef}>
                     <sphereGeometry args={[1, 32, 32]} />
                     <meshPhongMaterial specularMap={specularMap} />
                     <meshStandardMaterial map = {colorMap} />
@@ -51,7 +54,13 @@ const HomeSection = () => {
                     />
                 </mesh>
             </Suspense>
+        );
+    }
+
+    return (
+        <Canvas>
+            <MeshFunction />
         </Canvas>
-    )
+    );
 }
-export default HomeSection
+export default HomeSection;
