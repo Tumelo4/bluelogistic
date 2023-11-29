@@ -10,7 +10,10 @@ const Landing = () => {
   return (
       <div className=' w-full h-full'>
         <Header></Header>
-        <section className=' h-screen bg-black'>
+        <section className=' h-screen bg-black relative'>
+            {/* <div className=' absolute flex justify-center items-center z-10 w-screen h-screen text-white'>
+              Blue Logistics
+            </div> */}
             <HomeSection />
         </section>
       </div>

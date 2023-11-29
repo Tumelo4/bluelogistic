@@ -14,6 +14,7 @@ const Logo = ({src, alt}:LogoProp) => {
             alt={alt} 
             width={Dimesion.imgwidth.s}
             height={Dimesion.imgheight.s}
+            priority
         />
     )
 }
