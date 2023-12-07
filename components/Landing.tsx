@@ -18,9 +18,13 @@ const Landing = () => {
               initial={{ x: -1000}}
               animate={{ x: 0 }}
               transition={{ duration: 1 }}
-            >  
-              <h1 className=' font-medium text-4xl'>Blue Logistics</h1>
-              <p>Efficiency all the way</p>
+              style={{display:'flex', justifyContent: 'center', flexDirection:'column'}}
+            > 
+              <div>
+                <h1 className=' font-medium text-4xl'>Blue Logistics</h1>
+                <p>Efficiency all the way</p>
+              </div> 
+              <button className=' mt-6 hover:bg-blue-500 ease-in-out duration-500 hover:cursor-pointer p-3 outline-blue-500 outline capitalize'>Get started</button>
             </motion.div>
           </div>
             <HomeSection />
