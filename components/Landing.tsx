@@ -13,14 +13,15 @@ const Landing = () => {
       <div className=' w-full h-full'>
         <Header></Header>
         <section className=' h-screen w-screen bg-black relative flex justify-center items-center'>
-          <div className=' absolute flex justify-center items-center z-10 text-white'>
+          <div className=' absolute flex justify-center items-center z-10 text-white flex-col'>
             <motion.div
               initial={{ x: -1000, opacity: 0 }}
               animate={{ x: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >  
-              <h1 className=' font-medium text-2xl'>Blue Logistics</h1>
+              <h1 className=' font-medium text-4xl'>Blue Logistics</h1>
+              <p>Efficiency all the way</p>
             </motion.div>
           </div>
             <HomeSection />
