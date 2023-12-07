@@ -15,9 +15,8 @@ const Landing = () => {
         <section className=' h-screen w-screen bg-black relative flex justify-center items-center'>
           <div className=' absolute flex justify-center items-center z-10 text-white flex-col'>
             <motion.div
-              initial={{ x: -1000, opacity: 0 }}
+              initial={{ x: -1000}}
               animate={{ x: 0 }}
-              whileInView={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >  
               <h1 className=' font-medium text-4xl'>Blue Logistics</h1>
