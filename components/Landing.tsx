@@ -20,7 +20,7 @@ const Landing = () => {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >  
-              Blue Logistics
+              <h1 className=' font-medium text-2xl'>Blue Logistics</h1>
             </motion.div>
           </div>
             <HomeSection />
